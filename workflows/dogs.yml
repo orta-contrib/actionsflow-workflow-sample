@@ -1,16 +1,17 @@
-name: Dogs
 on:
   poll:
-    url: https://dog.ceo/api/breeds/image/random
+    url: https://jsonplaceholder.typicode.com/posts
+    config:
+      limit: 5
 jobs:
   print:
     name: Print
     runs-on: ubuntu-latest
     steps:
-      - name: Print Outpus
+      - name: Print Outputs
         env:
-          message: ${{ on.poll.outputs.message }}
-          status: ${{ on.poll.outputs.status }}
+          title: ${{ on.poll.outputs.title }}
+          body: ${{ on.poll.outputs.body }}
         run: |
-          echo "message: ${message}"
-          echo "status: ${status}"
+          echo "title: $title"
+          echo "body: $body"
