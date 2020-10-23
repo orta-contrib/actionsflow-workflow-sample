@@ -1,0 +1,17 @@
+on:
+  poll:
+    url: https://ghibliapi.herokuapp.com/locations?limit=5
+    config:
+      limit: 5
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          name: ${{ on.poll.outputs.name }}
+          terrain: ${{ on.poll.outputs.terrain }}
+        run: |
+          echo "name: $name"
+          echo "terrain: $terrain"
