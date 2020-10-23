@@ -1,0 +1,16 @@
+name: Dogs
+on:
+  poll:
+    url: https://dog.ceo/api/breeds/image/random
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outpus
+        env:
+          message: ${{ on.poll.outputs.message }}
+          status: ${{ on.poll.outputs.status }}
+        run: |
+          echo "message: ${message}"
+          echo "status: ${status}"
