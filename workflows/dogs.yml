@@ -1,0 +1,15 @@
+name: Dogs
+on:
+  poll:
+    ulr: https://dog.ceo/api/breeds/image/random
+    shouldIncludeBody: true
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: PrintOutputs
+        env:
+          rawBody: ${{ toJSON(on.poll.outputs.raw__body) }}
+        run: |
+          echo "rawBody: $rawBody"
