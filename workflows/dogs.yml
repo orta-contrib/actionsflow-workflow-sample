@@ -1,7 +1,7 @@
 name: Dogs
 on:
   poll:
-    ulr: https://dog.ceo/api/breeds/image/random
+    url: https://dog.ceo/api/breeds/image/random
     shouldIncludeBody: true
 jobs:
   print:
